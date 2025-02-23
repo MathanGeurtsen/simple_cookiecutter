@@ -1,0 +1,6 @@
+{
+  "comment": "These are the initial cookiecutter variables. this file is for documentation only and may be deleted.",
+  "project_name": "{{cookiecutter.project_name}}",
+  "project_description": "{{cookiecutter.project_description}}",
+  "author": "{{cookiecutter.author}}"
+}

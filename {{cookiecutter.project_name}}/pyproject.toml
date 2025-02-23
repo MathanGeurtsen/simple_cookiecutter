@@ -1,0 +1,101 @@
+[project]
+name            = "{{cookiecutter.project_name}}"
+version         = "0.1.0"
+description     = "{{cookiecutter.project_description}}"
+readme          = "README.md"
+authors         = [{ name = "{{cookiecutter.author}}" }, ]
+requires-python = ">=3.9"
+dependencies    = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest-cov~=6.0.0",
+  "poethepoet~=0.32.1",
+  "pytest~=8.3.4",
+  "ruff~=0.9.3",
+  "pyright~=1.1",
+]
+
+[tool.poe.tasks]
+test              = "pytest --cov"
+lint_check        = "ruff check --fix"
+lint_format       = "ruff format"
+lock_check        = "uv lock --check"
+type_check        = "pyright"
+check_doc         = "python -m doctest -v README.md"
+_check            = [
+	"lint_check",
+	"lint_format",
+	"lock_check",
+	"check_doc",
+	"test",
+	"type_check",
+]
+check.sequence    = ["_check"]
+check.ignore_fail = true
+
+build = [
+  { ref = "_check" },
+  { cmd = "uv build" },
+  { cmd = "uv run --with {{cookiecutter.project_name}} --no-project -- python -c \"import {{cookiecutter.project_name}}\"" },
+]
+
+
+[tool.ruff]
+line-length  = 100
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+  "E",      # pycodestyle
+  "W",      # pycodestyle warning
+  "F",      # pyflakes
+  "D",      # docstyle
+  "B",      # bugbear 
+  "UP",     # pyupgrade
+  "FIX002", # check TODOs
+  "PD",     # pandas linter
+  "ERA",    # outcommented code checker
+  "C901",   # complexity check
+]
+
+ignore = [
+  "D203", # no-blank-line-before-class
+  "D213", # multi-line-summary-second-line
+  "D401", # non-imperative-mood
+  "D100", # Missing docstring in public module
+  "D205", # 1 blank line required
+  "D400", # First line should end with a period
+  "D415", # First line should end with a period
+  "D212", # comment on first line
+]
+
+fixable   = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+
+[tool.ruff.format]
+quote-style               = "double"
+indent-style              = "space"
+skip-magic-trailing-comma = false
+line-ending               = "auto"
+docstring-code-format     = false
+
+[tool.pyright]
+
+[tool.pytest.ini_options]
+testpaths  = ["tests/"]
+pythonpath = ["src/"]
+
+[build-system]
+requires      = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/{{cookiecutter.project_name}}",
+    ]
+
+
