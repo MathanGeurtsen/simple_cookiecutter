@@ -8,7 +8,7 @@ This is a simple cookiecutter template for python projects with the following fe
 
 ## Usage
 
-Ensure you have cookiecutter, git, and uv installed. See [uv](https://docs.astral.sh/uv/) for install instructions.
+Ensure you have git and uv installed. See [uv](https://docs.astral.sh/uv/) for its install instructions.
 
 You can make a new project based on this repository:
 ```bash
