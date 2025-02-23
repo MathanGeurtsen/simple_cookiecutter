@@ -8,14 +8,11 @@ This is a simple cookiecutter template for python projects with the following fe
 
 ## Usage
 
-Ensure you have cookiecutter, git, and uv installed. See [uv](https://docs.astral.sh/uv/) for install instructions. Once uv is installed, cookiecutter can be installed like:
-```bash
-uv tool install cookiecutter
-```
+Ensure you have cookiecutter, git, and uv installed. See [uv](https://docs.astral.sh/uv/) for install instructions.
 
-Now you can make a new project based on this repository:
+You can make a new project based on this repository:
 ```bash
-cookiecutter https://github.com/MathanGeurtsen/simple_cookiecutter
+uvx cookiecutter https://github.com/MathanGeurtsen/simple_cookiecutter
 ```
 
 Once cookiecutter has ran, activate the new virtual environment with:
