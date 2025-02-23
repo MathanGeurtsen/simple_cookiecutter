@@ -6,8 +6,14 @@ This is a simple cookiecutter template for python projects with the following fe
 
 ## Usage
 
+Ensure you have cookiecutter installed. For example with uv:
 ```bash
-cookiecutter <repo_url>
+uv tool install cookiecutter
+```
+
+Now you can make a new project based on this repository:
+```bash
+cookiecutter https://github.com/MathanGeurtsen/simple_cookiecutter
 # answer questions, then follow install instructions in generated Readme
 ```
 
