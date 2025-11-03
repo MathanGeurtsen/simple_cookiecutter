@@ -11,3 +11,4 @@ wheels/
 .venv
 
 .aider*
+cookiecutter_initial_values_documentation.json

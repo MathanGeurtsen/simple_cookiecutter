@@ -13,17 +13,18 @@ Write usage example here (will be tested by doccheck):
 
 ## Requirements
 
-- Python 3.9+
+- Python 3.13+
 
 ## Development
 
-For testing and linting, setup the extra dependencies in a virtual environment using [uv](https://docs.astral.sh/uv/):
+Setup dependencies in a virtual environment using [uv](https://docs.astral.sh/uv/):
 ```
-uv sync --extra dev
+uv sync
 ```
 
+The virtual environment is activated automatically if you use [direnv](https://direnv.net/).
 
-Activate the virtual environment (bash compatible on linux):
+If not, activate the virtual environment (bash compatible on linux):
 ```bash
 source .venv/bin/activate
 ```

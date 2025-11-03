@@ -4,10 +4,10 @@ version         = "0.1.0"
 description     = "{{cookiecutter.project_description}}"
 readme          = "README.md"
 authors         = [{ name = "{{cookiecutter.author}}" }, ]
-requires-python = ">=3.9"
+requires-python = ">=3.13"
 dependencies    = []
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
   "pytest-cov~=6.0.0",
   "poethepoet~=0.32.1",
